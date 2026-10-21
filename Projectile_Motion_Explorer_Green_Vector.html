@@ -61,6 +61,8 @@ function pug(svg,x,y,asleep=false,wave=0){
 }
 
 function bedroom(svg){
+ const rect=(x,y,w,h,fill,attrs={})=>el('rect',{x,y,width:w,height:h,fill,...attrs},svg);
+ const circ=(x,y,r,fill,attrs={})=>el('circle',{cx:x,cy:y,r,fill,...attrs},svg);
  rect(0,0,850,430,'#f7e8d9');
  rect(0,350,850,80,'#d3a57b');
  for(let x=0;x<850;x+=90)line(svg,x,350,x+32,430,{stroke:'#b78c68','stroke-width':1.2,opacity:.5});
@@ -97,6 +99,7 @@ function bedroom(svg){
  rect(682,333,127,8,'#70584b',{rx:3});
 }
 function thrower(svg,x,y,angle,launched){
+ const circ=(x,y,r,fill,attrs={})=>el('circle',{cx:x,cy:y,r,fill,...attrs},g);
  const g=el('g',{transform:`translate(${x} ${y})`},svg);
  // friendly cartoon adult, feet grounded at y+17
  el('path',{d:'M -18 -18 L -29 16 M 0 -17 L 9 17',stroke:'#344a73','stroke-width':12,'stroke-linecap':'round'},g);
